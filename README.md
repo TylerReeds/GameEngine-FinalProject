@@ -23,4 +23,4 @@ Explanation of what was done and how:
 ------
 
 Description of the game:
-It is a strategic 2D tile-based action game where you travel through a series of procedurally generated levels while slaying enemies. Enemies will only move after you move, and you can undo or redo any action you perform, playing into the strategy of navigating these levels and surviving. The player can also remap their controls to fit their needs and desires best. 
+It is a strategic 2D tile-based action game where you travel through a series of procedurally generated levels while slaying enemies. There will be different kinds of enemies, with them having different damage, health and movement logic.  You will move around left, right, up and down between each tile and enemies will move when you move. You can undo/redo any movement action you perform while the enemy does not move, which helps play into the strategy of navigating these levels, defeating enemies and surviving. The player is also able to remap their controls to best fit their playstyle and comfort. 
