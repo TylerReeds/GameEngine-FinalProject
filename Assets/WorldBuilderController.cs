@@ -7,7 +7,7 @@ using UnityEngine;
 public class WorldBuilderController : MonoBehaviour
 {
     public int Seed;
-    public int Width, Height;
+    private int Width = 10, Height = 10;
     public List<TileChance> TilePrefabs;
 
     [System.Serializable]
