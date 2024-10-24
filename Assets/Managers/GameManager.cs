@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
 
     public int numOfEnemiesAlive = 0;
 
+    public delegate void FinishLevel();
+    public event FinishLevel beatLevel;
+
     void Start()
     {
         if(instance != this && instance != null)
@@ -30,6 +33,7 @@ public class GameManager : MonoBehaviour
     {
         if(numOfEnemiesAlive <= 0) // meaning, if level is beaten
         {
+            beatLevel();
             //rebuild, reset enemyList, reset numOfEnemies Alive
             System.Array.Clear(enemyList, 0, enemyList.Length);
             enemyList = GameObject.FindGameObjectsWithTag("Enemy");
