@@ -14,7 +14,7 @@ The above screenshot shows an example of a procedurally generated level and in t
 
 ------
 
-Tyler Reeds - 100870679 - Programmer
+Tyler Reeds - Programmer
 
 Responsibilities 
 - Input Manager(Singleton)
@@ -61,7 +61,7 @@ We implemented a simple observer to play some SFX when some events happen in the
 
 ------
 
-Jayden Deller-Daoust - 100847599 - Programmer
+Jayden Deller-Daoust - Programmer
 
 Responsibilities 
 - Game Manager(Singleton)
@@ -96,3 +96,21 @@ Check if all enemies are cleared before loading the next level(Observer)
 Explanation: 
 
 While a simple implementation of an observer, it was necessary to allow our game to function. We needed the enemies, as they died, to update the Game Manager once they did. Enemy death is an event that requires the number of total enemies in a given level to be reduced so that the conditions to progress levels are met.
+
+Project Management Tools: 
+
+ClickUp Gantt Chart for task tracking:
+
+https://sharing.clickup.com/9011021810/g/h/6-901105904928-7/a1ca2bbd4624315
+
+Planning Google Doc: 
+
+
+
+Game Demo Video:
+
+
+
+Assignment 1 Video Report: 
+
+
