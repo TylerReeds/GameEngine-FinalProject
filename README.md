@@ -12,6 +12,18 @@ Information:
 
 The above screenshot shows an example of a procedurally generated level and in the inspector, we can see that we can change the seed and also the chance each of the tiles can spawn. This helps add even more randomization to what the levels can be. 
 
+![GameWithEnemies](https://github.com/user-attachments/assets/6ba67168-67d8-464a-8982-6feb4129f191)
+
+The above screenshot shows an example of the level with enemies randomly spawning on some tiles 
+
+![EnemyDead](https://github.com/user-attachments/assets/2fc8df02-0a49-4685-9678-a1d5f940c588)
+
+This screenshot shows that the player killed an enemy by moving on top of them and there is one enemy remaining
+
+![NewLevelWithMoreEnemies](https://github.com/user-attachments/assets/ea24e118-0f53-4c15-ac49-e43e98a6110f)
+
+This shows the second level of the game where the enemies double and we have 4, with a new level layout too
+
 ------
 
 Tyler Reeds - Programmer
@@ -102,10 +114,6 @@ Project Management Tools:
 ClickUp Gantt Chart for task tracking:
 
 https://sharing.clickup.com/9011021810/g/h/6-901105904928-7/a1ca2bbd4624315
-
-Planning Google Doc: 
-
-
 
 Game Demo Video:
 
