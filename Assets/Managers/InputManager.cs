@@ -6,43 +6,35 @@ public class InputManager : MonoBehaviour
 {
     public static InputManager Instance;
 
-    public Keybindings keybindings; 
+    public Keybindings keybindings;
+    public Dictionary<string, ICommand> movement = new Dictionary<string, ICommand>();
 
     void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
         }
-        else if(Instance != this)
+        else if (Instance != this)
         {
             Destroy(this);
         }
-        DontDestroyOnLoad(this); 
+        DontDestroyOnLoad(this);
     }
 
-    public bool GetKeyDown(string key)
+    public void SetCommand(string key, ICommand command)
+    {
+        movement[key] = command;
+    }
+
+    public void HandleInput(string key)
     {
         if (Input.GetKeyDown(keybindings.CheckKey(key)))
         {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    public bool GetKey(string key)
-    {
-        if (Input.GetKey(keybindings.CheckKey(key)))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
+            if (movement.ContainsKey(key))
+            {
+                movement[key].Execute();
+            }
         }
     }
-
 }

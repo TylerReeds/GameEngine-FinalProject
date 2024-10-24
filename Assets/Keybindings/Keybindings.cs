@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Keybindings", menuName = "Keybindings")]
 public class Keybindings : ScriptableObject
 {
-    public KeyCode up, down, left, right, attack, pause; 
+    public KeyCode up, down, left, right, undo, redo; 
 
     public KeyCode CheckKey(string key)
     {
@@ -23,11 +23,11 @@ public class Keybindings : ScriptableObject
             case "Right":
                 return right;
 
-            case "Attack":
-                return attack;
+            case "Undo":
+                return undo;
 
-            case "Pause":
-                return pause;
+            case "Redo":
+                return redo;
 
             default:
                 return KeyCode.None;    

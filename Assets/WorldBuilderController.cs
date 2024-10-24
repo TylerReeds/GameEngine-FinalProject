@@ -7,7 +7,7 @@ using UnityEngine;
 public class WorldBuilderController : MonoBehaviour
 {
     public int Seed;
-    public int Width, Height;
+    private int Width = 10, Height = 10;
     public List<TileChance> TilePrefabs;
 
     [System.Serializable]
@@ -58,6 +58,8 @@ public class WorldBuilderController : MonoBehaviour
     [ContextMenu("Rebuild Map")]
     public void Rebuild()
     {
+        Seed = Random.Range(0, 100000000);
+
         for (int i = this.transform.childCount - 1; i >= 0; i--)
         {
             Destroy(this.transform.GetChild(i).gameObject);
