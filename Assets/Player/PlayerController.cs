@@ -29,10 +29,25 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        inputManager.HandleInput("Up");
-        inputManager.HandleInput("Down");
-        inputManager.HandleInput("Left");
-        inputManager.HandleInput("Right");
+        if (transform.position.x > -6.76f)
+        {
+            inputManager.HandleInput("Left");
+        }
+
+        if (transform.position.x < 6.74f)
+        {
+            inputManager.HandleInput("Right");
+        }
+
+        if (transform.position.y > -8.11f)
+        {
+            inputManager.HandleInput("Down");
+        }
+
+        if (transform.position.y < 5.39f)
+        {
+            inputManager.HandleInput("Up");
+        }
 
         if (PlayerHP <= 0)
         {
