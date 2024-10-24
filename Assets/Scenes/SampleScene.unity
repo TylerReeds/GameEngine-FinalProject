@@ -643,6 +643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelGenerator: {fileID: 687580023}
+  sfxObserver: {fileID: 465233288}
   basicEnemy: {fileID: 3300531858969204885, guid: 7eba4d7265f721e46aed6f05bfcfc3b7, type: 3}
   enemyList: []
   currentLevel: 1

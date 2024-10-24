@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance; // Singleton Design Pattern
     public WorldBuilderController levelGenerator;
 
+    public SFXObserver sfxObserver;
     public GameObject basicEnemy;
     public List<GameObject> enemyList;
 
@@ -45,6 +46,7 @@ public class GameManager : MonoBehaviour
     {
         if(numOfEnemiesAlive <= 0) // meaning, if level is beaten
         {
+            sfxObserver.PlayWinSFX();
             levelGenerator.Rebuild();
             //rebuild, reset enemyList, reset numOfEnemies Alive
             enemyList.Clear();

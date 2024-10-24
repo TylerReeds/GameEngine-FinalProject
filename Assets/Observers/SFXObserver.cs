@@ -19,10 +19,6 @@ public class SFXObserver : MonoBehaviour
 
     private void OnEnable()
     {
-        if (gameManager != null)
-        {
-            //gameManager.beatLevel += PlayWinSFX;
-        }
         if (playerController != null)
         {
             playerController.playerDiedEvent += PlayDeathSFX;
@@ -30,7 +26,7 @@ public class SFXObserver : MonoBehaviour
         }
     }
 
-    void PlayWinSFX()
+    public void PlayWinSFX()
     {
         //Debug.Log("3");
         if (WinSFX != null)
