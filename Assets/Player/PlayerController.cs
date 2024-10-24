@@ -29,8 +29,8 @@ public class PlayerController : MonoBehaviour
         inputManager.SetCommand("Down", new MoveDownCommand(this));
         inputManager.SetCommand("Left", new MoveLeftCommand(this));
         inputManager.SetCommand("Right", new MoveRightCommand(this));
-        inputManager.SetCommand("U", new UndoCommand(this));
-        inputManager.SetCommand("R", new RedoCommand(this));
+        inputManager.SetCommand("Undo", new UndoCommand(this));
+        inputManager.SetCommand("Redo", new RedoCommand(this));
     }
 
     // Update is called once per frame
@@ -56,8 +56,8 @@ public class PlayerController : MonoBehaviour
             inputManager.HandleInput("Up");
         }
 
-        inputManager.HandleInput("U");
-        inputManager.HandleInput("R");
+        inputManager.HandleInput("Undo");
+        inputManager.HandleInput("Redo");
 
         if (PlayerHP <= 0)
         {
@@ -93,30 +93,34 @@ public class PlayerController : MonoBehaviour
 
     public void Undo()
     {
-        if(previousInputs.Count > 0)
+        if (previousInputs.Count > 0)
         {
-            if (previousInputs.ElementAt(0).ToString() == "MoveUpCommand")
+            ICommand lastCommand = previousInputs.Peek();
+
+            if (lastCommand is MoveUpCommand)
             {
+                Debug.Log(lastCommand);
                 MoveDown();
             }
-            if (previousInputs.ElementAt(0).ToString() == "MoveDownCommand")
+            else if (lastCommand is MoveDownCommand)
             {
+                Debug.Log(lastCommand);
                 MoveUp();
             }
-            if (previousInputs.ElementAt(0).ToString() == "MoveLeftCommand")
+            else if (lastCommand is MoveLeftCommand)
             {
+                Debug.Log(lastCommand);
                 MoveRight();
             }
-            if (previousInputs.ElementAt(0).ToString() == "MoveRightCommand")
+            else if (lastCommand is MoveRightCommand)
             {
+                Debug.Log(lastCommand);
                 MoveLeft();
             }
-
-            inputToRedo = previousInputs.ElementAt(0);
-
-            previousInputs.Pop();
+            inputToRedo = previousInputs.Pop();
         }
     }
+
 
     public void Redo()
     {
@@ -125,18 +129,22 @@ public class PlayerController : MonoBehaviour
             if (inputToRedo.ToString() == "MoveUpCommand")
             {
                 MoveDown();
+                inputToRedo = null;
             }
             if (inputToRedo.ToString() == "MoveDownCommand")
             {
                 MoveUp();
+                inputToRedo = null;
             }
             if (inputToRedo.ToString() == "MoveLeftCommand")
             {
                 MoveRight();
+                inputToRedo = null;
             }
             if (inputToRedo.ToString() == "MoveRightCommand")
             {
                 MoveLeft();
+                inputToRedo = null;
             }
         }
     }

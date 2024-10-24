@@ -23,10 +23,10 @@ public class Keybindings : ScriptableObject
             case "Right":
                 return right;
 
-            case "U":
+            case "Undo":
                 return undo;
 
-            case "R":
+            case "Redo":
                 return redo;
 
             default:
