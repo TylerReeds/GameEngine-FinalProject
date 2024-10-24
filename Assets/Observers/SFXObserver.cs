@@ -36,7 +36,7 @@ public class SFXObserver : MonoBehaviour
         if (WinSFX != null)
         {
             audioSource.clip = WinSFX;
-            WinSFX.Play();
+            audioSource.Play();
         } 
     }
     
@@ -46,7 +46,7 @@ public class SFXObserver : MonoBehaviour
         if (DeathSFX != null)
         {
             audioSource.clip = DeathSFX;
-            DeathSFX.Play();
+            audioSource.Play();
         }
     }
 
@@ -56,7 +56,7 @@ public class SFXObserver : MonoBehaviour
         if (KillSFX != null)
         {
             audioSource.clip = KillSFX;
-            KillSFX.Play();
+            audioSource.Play();
         }
     }
 

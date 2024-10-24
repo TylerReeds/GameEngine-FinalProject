@@ -13,31 +13,26 @@ public class PlayerController : MonoBehaviour
 
     public delegate void EnemyKilled();
     public event EnemyKilled enemyKilledEvent;
-    // Start is called before the first frame update
+
+    private InputManager inputManager;
+
     void Start()
     {
-        
+        inputManager = InputManager.Instance;
+
+        inputManager.SetCommand("Up", new MoveUpCommand(this));
+        inputManager.SetCommand("Down", new MoveDownCommand(this));
+        inputManager.SetCommand("Left", new MoveLeftCommand(this));
+        inputManager.SetCommand("Right", new MoveRightCommand(this));
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(keybinds.CheckKey("Up")))
-        {
-            MoveUp();
-        }
-        if (Input.GetKeyDown(keybinds.CheckKey("Down")))
-        {
-            MoveDown();
-        }
-        if (Input.GetKeyDown(keybinds.CheckKey("Left")))
-        {
-            MoveLeft();
-        }
-        if (Input.GetKeyDown(keybinds.CheckKey("Right")))
-        {
-            MoveRight();
-        }
+        inputManager.HandleInput("Up");
+        inputManager.HandleInput("Down");
+        inputManager.HandleInput("Left");
+        inputManager.HandleInput("Right");
 
         if (PlayerHP <= 0)
         {
@@ -46,19 +41,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void MoveUp()
+    public void MoveUp()
     {
         transform.position += new Vector3(0, moveDistance, 0);
     }
-    void MoveDown()
+    public void MoveDown()
     {
         transform.position -= new Vector3(0, moveDistance, 0);
     }
-    void MoveLeft()
+    public void MoveLeft()
     {
         transform.position -= new Vector3(moveDistance, 0, 0);
     }
-    void MoveRight()
+    public void MoveRight()
     {
         transform.position += new Vector3(moveDistance, 0, 0);
     }
