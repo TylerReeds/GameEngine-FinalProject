@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class GreenTile : BaseTile
 {
-    protected override void OnCollisionEnter(Collision collision)
+    void Start()
+    {
+        gameManagerObj = GameObject.Find("GameManager");
+        gameManager = gameManagerObj.GetComponent<GameManager>();
+
+        player = GameObject.Find("Player");
+        controller = player.GetComponent<PlayerController>();
+    }
+
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            damage = -1; // Healing Tile
+            damage = -2; // Healing Tile
         }
     }
 }

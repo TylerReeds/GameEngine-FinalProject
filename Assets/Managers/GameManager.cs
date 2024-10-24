@@ -19,11 +19,11 @@ public class GameManager : MonoBehaviour
     public UnityEvent playerInput;
     public UnityEvent enemyDeath;
 
-    private float[] potentialEnemySpawnsX = new float[10]{ // X values of every tile that spawns in a level.
+    public float[] potentialEnemySpawnsX = new float[10]{ // X values of every tile that spawns in a level.
         -6.76f, -5.26f, -3.76f, -2.26f, -0.76f, 0.74f, 2.24f, 3.74f, 5.24f, 6.74f
     };
 
-    private float[] potentialEnemySpawnsY = new float[10]{ // Y values of every tile that spawns in a level.
+    public float[] potentialEnemySpawnsY = new float[10]{ // Y values of every tile that spawns in a level.
         -8.11f, -6.61f, -5.11f, -3.61f, -2.11f, -0.61f, 0.89f, 2.39f, 3.89f, 5.39f
     };
 
