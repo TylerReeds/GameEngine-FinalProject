@@ -7,7 +7,7 @@ public class InputManager : MonoBehaviour
     public static InputManager Instance;
 
     public Keybindings keybindings;
-    private Dictionary<string, ICommand> movement = new Dictionary<string, ICommand>();
+    public Dictionary<string, ICommand> movement = new Dictionary<string, ICommand>();
 
     void Awake()
     {

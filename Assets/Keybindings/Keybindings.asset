@@ -16,5 +16,5 @@ MonoBehaviour:
   down: 274
   left: 276
   right: 275
-  attack: 277
-  pause: 279
+  undo: 117
+  redo: 114

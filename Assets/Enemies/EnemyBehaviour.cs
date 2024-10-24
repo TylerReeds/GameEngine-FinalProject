@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
+    public GameObject gameManagerObj;
+    public GameManager gameManager;
+
     //Factory Design Pattern
     //Provides a basis for all enemies to be built off of, child scripts inherit from this parent script and can just modify from there.
     public int health;

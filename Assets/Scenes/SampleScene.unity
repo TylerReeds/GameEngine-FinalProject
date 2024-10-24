@@ -135,9 +135,11 @@ GameObject:
   - component: {fileID: 465233287}
   - component: {fileID: 465233288}
   - component: {fileID: 465233289}
+  - component: {fileID: 465233290}
+  - component: {fileID: 465233291}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -182,7 +184,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -223,6 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keybinds: {fileID: 11400000, guid: 4211aff1feb11a945bac807195c9c0b7, type: 2}
   PlayerHP: 100
+  gameManager: {fileID: 1143373575}
 --- !u!114 &465233288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,7 +264,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.3422618
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -337,6 +340,68 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!58 &465233290
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465233284}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0048134755, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.6486104
+--- !u!50 &465233291
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465233284}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &472058489
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,12 +642,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c64a3bf4fff0c004b928fb63dea76179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instance: {fileID: 1143373575}
   levelGenerator: {fileID: 687580023}
   basicEnemy: {fileID: 3300531858969204885, guid: 7eba4d7265f721e46aed6f05bfcfc3b7, type: 3}
   enemyList: []
   currentLevel: 1
   numOfEnemiesAlive: 1
+  playerInput:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1462556328
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ public class SFXObserver : MonoBehaviour
     {
         if (gameManager != null)
         {
-            gameManager.beatLevel += PlayWinSFX;
+            //gameManager.beatLevel += PlayWinSFX;
         }
         if (playerController != null)
         {
@@ -32,7 +32,7 @@ public class SFXObserver : MonoBehaviour
 
     void PlayWinSFX()
     {
-        Debug.Log("3");
+        //Debug.Log("3");
         if (WinSFX != null)
         {
             audioSource.clip = WinSFX;
@@ -42,7 +42,7 @@ public class SFXObserver : MonoBehaviour
     
     void PlayDeathSFX()
     {
-        Debug.Log("1");
+        //Debug.Log("1");
         if (DeathSFX != null)
         {
             audioSource.clip = DeathSFX;
@@ -52,7 +52,7 @@ public class SFXObserver : MonoBehaviour
 
     void PlayKillSFX()
     {
-        Debug.Log("2");
+        //Debug.Log("2");
         if (KillSFX != null)
         {
             audioSource.clip = KillSFX;
