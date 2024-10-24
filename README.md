@@ -12,6 +12,18 @@ Information:
 
 The above screenshot shows an example of a procedurally generated level and in the inspector, we can see that we can change the seed and also the chance each of the tiles can spawn. This helps add even more randomization to what the levels can be. 
 
+![GameWithEnemies](https://github.com/user-attachments/assets/6ba67168-67d8-464a-8982-6feb4129f191)
+
+The above screenshot shows an example of the level with enemies randomly spawning on some tiles 
+
+![EnemyDead](https://github.com/user-attachments/assets/2fc8df02-0a49-4685-9678-a1d5f940c588)
+
+This screenshot shows that the player killed an enemy by moving on top of them and there is one enemy remaining
+
+![NewLevelWithMoreEnemies](https://github.com/user-attachments/assets/ea24e118-0f53-4c15-ac49-e43e98a6110f)
+
+This shows the second level of the game where the enemies double and we have 4, with a new level layout too
+
 ------
 
 Tyler Reeds - Programmer
@@ -79,11 +91,15 @@ Explanation:
 
 Using a game manager allows us to simplify the overarching game mechanics of our project that do not rely on specific utilities from a player or an enemy. I created a script for the game manager to keep track of the level, and the amount of enemies left, and to have it regenerate a new level once conditions are met. This way, it makes the game mechanics simple to work around and implement without taking up too much space or too many scripts.
 
+![GameManager](https://github.com/user-attachments/assets/1cdd3268-553c-4c25-ab1e-174d6354346a)
+
 Undo/Redo(Command)
 
 Explanation:
 
 By storing the player inputs as ‘objects’, we can freely store the data of their inputs to use in the future. In using a stack, we can sequentially order player inputs in a way that allows us to easily undo/redo player input by manipulating the stack order to our advantage, as by nature objects in a stack are placed at the front, so most recent inputs are stored first.
+
+![UndoRedo](https://github.com/user-attachments/assets/5ae3608a-353f-4b22-bd37-d1945152b5e0)
 
 Different Kinds of Tiles(Factory)
 
@@ -91,11 +107,15 @@ Explanation:
 
 The original idea was to have different kinds of enemies with varying stats to them. However, as we began developing the game, we realized it would be better and far simpler to have different kinds of tiles for the levels, as that functionality was practically already implemented by the time we got to enemies. So, we created a base tile script, along with override functions for each tile so that they keep the same base while having completely different utilities altogether.
 
+![Tiles](https://github.com/user-attachments/assets/1582dfd3-455b-48db-b49d-719faffe5618)
+
 Check if all enemies are cleared before loading the next level(Observer)
 
 Explanation: 
 
 While a simple implementation of an observer, it was necessary to allow our game to function. We needed the enemies, as they died, to update the Game Manager once they did. Enemy death is an event that requires the number of total enemies in a given level to be reduced so that the conditions to progress levels are met.
+
+![EnemyObserver](https://github.com/user-attachments/assets/a6b9b3e3-dca4-479b-bb14-663762799b97)
 
 Project Management Tools: 
 
@@ -103,9 +123,7 @@ ClickUp Gantt Chart for task tracking:
 
 https://sharing.clickup.com/9011021810/g/h/6-901105904928-7/a1ca2bbd4624315
 
-Planning Google Doc: 
-
-
+Project Planning Document also included in submission.
 
 Game Demo Video:
 
