@@ -1,6 +1,19 @@
 # GameEngine-FinalProject
-The Final Project including Assignment 1 for Game Engine Fall 2024
- 
+
+Description of the game:
+
+It is a strategic 2D tile-based action game where you travel through a series of procedurally generated levels while slaying enemies. There will be different kinds of tiles where some can heal you and some others burn you, you will have to navigate between the different tiles while also planning how to attack your enemies.  You will move around left, right, up and down between each tile and enemies will move when you move. You can undo/redo any movement action you perform while the enemy does not move, which helps play into the strategy of navigating these levels, defeating enemies and surviving. The player is also able to remap their controls to best fit their playstyle and comfort. 
+
+------
+
+Information: 
+
+![GameWorldBuilder](https://github.com/user-attachments/assets/758254c6-4e61-4cf9-8ece-19b921792bb6)
+
+The above screenshot shows an example of a procedurally generated level and in the inspector, we can see that we can change the seed and also the chance each of the tiles can spawn. This helps add even more randomization to what the levels can be. 
+
+------
+
 Tyler Reeds - 100870679 - Programmer
 
 Responsibilities 
@@ -18,7 +31,9 @@ Input Manager(Singleton)-
 
 ![InputManager(Singleton) drawio](https://github.com/user-attachments/assets/e993e304-b95f-4743-bb9f-2b733c47486e)
 
-Explanation:
+Explanation: 
+
+We used an input manager that is able to keep track of the player inputs. This sets a command based on what input key is pressed to manage the inputs for movement and attacks. It also has a handle input function to check what key is pressed and to execute the corresponding action. This allows us to have a single space where the inputs are managed to keep things organized and simple. 
 
 Custom Button Mapping(Command)-
 
@@ -26,11 +41,15 @@ Custom Button Mapping(Command)-
 
 Explanation:
 
+We used the command pattern to handle custom button remapping for the controls of the game. This uses a Keybindings scriptable object that has a switch case statement for different cases, Up, Down, Left, Right, Attack, and Pause. We also have 4 scripts for each MoveDirectionCommand and an ICommand script that stores an execute function. This allows us to have custom button remapping from the unity inspector using the scriptable object. 
+
 Procedurally Generated Levels(Factory)-
 
 ![WorldBuilder(Factory) drawio](https://github.com/user-attachments/assets/dfec4358-1cca-4e73-9617-2db8c1da99ce)
 
 Explanation:
+
+We implemented a factory pattern to procedurally generate all of our levels, we have a worldFactory interface that has a seed, gridsize and createtile functions that will help to build our level of 10x10 tiles using random tiles each time. The pattern also stores a chance variable that can be changed in the inspector for the percent chance that each tile can appear. It will then create a 10x10 tile of random colours/types of tiles. This uses a seed, so if you change the seed you can regenerate another level. This is helpful to our game as we want procedurally generated levels with a random order of tiles for the player to navigate and their game experience will never be the exact same as before. 
 
 SFXObserver(Observer)- 
 
@@ -38,8 +57,7 @@ SFXObserver(Observer)-
 
 Explanation:
 
-Explanation of what was done and how - 
-
+We implemented a simple observer to play some SFX when some events happen in the game. We wanted an SFX to play if the player beats the level if the player dies and if the player kills an enemy. The observer looks at the GameManager script  to see if the beatlevel function is called, and then it will play the win SFX, it also looks at the PlayerController script to see if the playerDiedEvent is called or the enemyKilledEvent is called and then it will play the player died SFX and enemy killed SFX. 
 
 ------
 
@@ -78,9 +96,3 @@ Check if all enemies are cleared before loading the next level(Observer)
 Explanation: 
 
 While a simple implementation of an observer, it was necessary to allow our game to function. We needed the enemies, as they died, to update the Game Manager once they did. Enemy death is an event that requires the number of total enemies in a given level to be reduced so that the conditions to progress levels are met.
-
-
-------
-
-Description of the game:
-It is a strategic 2D tile-based action game where you travel through a series of procedurally generated levels while slaying enemies. There will be different kinds of tiles where some can heal you and some others burn you, you will have to navigate between the different tiles while also planning how to attack your enemies.  You will move around left, right, up and down between each tile and enemies will move when you move. You can undo/redo any movement action you perform while the enemy does not move, which helps play into the strategy of navigating these levels, defeating enemies and surviving. The player is also able to remap their controls to best fit their playstyle and comfort. 
