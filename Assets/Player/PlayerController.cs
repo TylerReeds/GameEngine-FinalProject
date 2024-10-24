@@ -74,10 +74,11 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         GameObject.Destroy(gameObject);
-        EditorApplication.ExitPlaymode();
+        //EditorApplication.ExitPlaymode();
+        Application.Quit();
     }
 
-public void MoveUp()
+    public void MoveUp()
     {
         transform.position += new Vector3(0, moveDistance, 0);
         previousInputs.Push(new MoveUpCommand(this));
