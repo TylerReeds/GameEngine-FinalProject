@@ -115,7 +115,7 @@ Explanation:
 
 While a simple implementation of an observer, it was necessary to allow our game to function. We needed the enemies, as they died, to update the Game Manager once they did. Enemy death is an event that requires the number of total enemies in a given level to be reduced so that the conditions to progress levels are met.
 
-Because this works closely with the GameManager, it is included in the GameManager UML Diagram.
+![EnemyObserver](https://github.com/user-attachments/assets/a6b9b3e3-dca4-479b-bb14-663762799b97)
 
 Project Management Tools: 
 
