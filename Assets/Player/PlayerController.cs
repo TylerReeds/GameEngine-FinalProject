@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public Keybindings keybinds;
     private float moveDistance = 1.5f;
-    public int PlayerHP = 100;
+    public int PlayerHP = 10;
 
     public delegate void PlayerDied();
     public event PlayerDied playerDiedEvent;
@@ -61,12 +62,22 @@ public class PlayerController : MonoBehaviour
 
         if (PlayerHP <= 0)
         {
+            Debug.Log("Player Dead");
             playerDiedEvent();
             enemyKilledEvent();
+            StartCoroutine(Delay());
         }
+
+        Debug.Log(PlayerHP);
+    }
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(2);
+        GameObject.Destroy(gameObject);
+        EditorApplication.ExitPlaymode();
     }
 
-    public void MoveUp()
+public void MoveUp()
     {
         transform.position += new Vector3(0, moveDistance, 0);
         previousInputs.Push(new MoveUpCommand(this));

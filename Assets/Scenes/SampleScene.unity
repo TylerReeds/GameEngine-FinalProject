@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keybinds: {fileID: 11400000, guid: 4211aff1feb11a945bac807195c9c0b7, type: 2}
-  PlayerHP: 100
+  PlayerHP: 10
   gameManager: {fileID: 1143373575}
 --- !u!114 &465233288
 MonoBehaviour:
@@ -588,15 +588,15 @@ MonoBehaviour:
   - Prefab: {fileID: 3241523521181978554, guid: c5fbb5b06a2e51f4793a5f4b5fc2dc91, type: 3}
     Chance: 10
   - Prefab: {fileID: 2662119094660045450, guid: 1fb5eda2b02b20646999549279219fbc, type: 3}
-    Chance: 90
+    Chance: 20
   - Prefab: {fileID: 3963540253349296733, guid: 402f5c6ef4df4b74abd60a2b61b88ab2, type: 3}
-    Chance: 10
+    Chance: 40
   - Prefab: {fileID: 96488440360728657, guid: 0ad7261bbc3b513468c469cb80301518, type: 3}
-    Chance: 15
+    Chance: 50
   - Prefab: {fileID: 7459781180210674874, guid: e60a0313bed43e44eaf430c8c756e025, type: 3}
-    Chance: 12
+    Chance: 30
   - Prefab: {fileID: 6325286769462765262, guid: 91cc93e18c0124f4bae058639965349c, type: 3}
-    Chance: 15
+    Chance: 30
   TileSize: 1.5
 --- !u!1 &1143373573
 GameObject:
@@ -650,6 +650,31 @@ MonoBehaviour:
   playerInput:
     m_PersistentCalls:
       m_Calls: []
+  enemyDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  potentialEnemySpawnsX:
+  - -6.76
+  - -5.26
+  - -3.76
+  - -2.26
+  - -0.76
+  - 0.74
+  - 2.24
+  - 3.74
+  - 5.24
+  - 6.74
+  potentialEnemySpawnsY:
+  - -8.11
+  - -6.61
+  - -5.11
+  - -3.61
+  - -2.11
+  - -0.61
+  - 0.89
+  - 2.39
+  - 3.89
+  - 5.39
 --- !u!1 &1462556328
 GameObject:
   m_ObjectHideFlags: 0

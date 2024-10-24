@@ -17,7 +17,7 @@ public class RedTile : BaseTile
     {
         if (collision.gameObject.tag == "Player")
         {
-            damage = 2;
+            controller.PlayerHP -= 2;
         }
     }
 }

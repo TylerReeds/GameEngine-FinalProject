@@ -17,7 +17,7 @@ public class PinkTile : BaseTile
     {
         if (collision.gameObject.tag == "Player")
         {
-            damage = -1;
+            controller.PlayerHP += 1;
         }
     }
 }

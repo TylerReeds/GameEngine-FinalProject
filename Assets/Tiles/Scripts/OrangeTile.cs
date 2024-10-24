@@ -17,7 +17,7 @@ public class OrangeTile : BaseTile
     {
         if (collision.gameObject.tag == "Player")
         {
-            damage = 1; // Fire Tile
+            controller.PlayerHP -= 1;
         }
     }
 }

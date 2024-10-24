@@ -17,7 +17,7 @@ public class GreenTile : BaseTile
     {
         if (collision.gameObject.tag == "Player")
         {
-            damage = -2; // Healing Tile
+            controller.PlayerHP += 2; 
         }
     }
 }
