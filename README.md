@@ -45,7 +45,7 @@ Input Manager(Singleton)-
 
 Explanation: 
 
-We used an input manager that is able to keep track of the player inputs. This sets a command based on what input key is pressed to manage the inputs for movement and attacks. It also has a handle input function to check what key is pressed and to execute the corresponding action. This allows us to have a single space where the inputs are managed to keep things organized and simple. 
+We used an input manager that is able to keep track of the player inputs. This sets a command based on what input key is pressed to manage the inputs for movement and attacks. It also has a handle input function to check what key is pressed and to execute the corresponding action. This allows us to have a single space where the inputs are managed to keep things organized and simple. This was useful as it created a single instance of the Input Manager where everything is managed in 1 script. 
 
 Custom Button Mapping(Command)-
 
@@ -53,7 +53,7 @@ Custom Button Mapping(Command)-
 
 Explanation:
 
-We used the command pattern to handle custom button remapping for the controls of the game. This uses a Keybindings scriptable object that has a switch case statement for different cases, Up, Down, Left, Right, Attack, and Pause. We also have 4 scripts for each MoveDirectionCommand and an ICommand script that stores an execute function. This allows us to have custom button remapping from the unity inspector using the scriptable object. 
+We used the command pattern to handle custom button remapping for the controls of the game. This uses a Keybindings scriptable object that has a switch case statement for different cases, Up, Down, Left, Right, Undo and Redo. We also have 4 scripts for each MoveDirectionCommand and an ICommand script that stores an execute function. This allows us to have custom button remapping from the unity inspector using the scriptable object. This was super useful as we could have a different event for the movement directions and have an ICommand script that just executed each command when it happened. 
 
 Procedurally Generated Levels(Factory)-
 
@@ -61,7 +61,7 @@ Procedurally Generated Levels(Factory)-
 
 Explanation:
 
-We implemented a factory pattern to procedurally generate all of our levels, we have a worldFactory interface that has a seed, gridsize and createtile functions that will help to build our level of 10x10 tiles using random tiles each time. The pattern also stores a chance variable that can be changed in the inspector for the percent chance that each tile can appear. It will then create a 10x10 tile of random colours/types of tiles. This uses a seed, so if you change the seed you can regenerate another level. This is helpful to our game as we want procedurally generated levels with a random order of tiles for the player to navigate and their game experience will never be the exact same as before. 
+We implemented a factory pattern to procedurally generate all of our levels, we have a world factory interface that has seed, grid size and creative functions that will help to build our level of 10x10 tiles using random tiles each time. The pattern also stores a chance variable that can be changed in the inspector for the percent chance that each tile can appear. It will then create a 10x10 tile of random colours/types of tiles. This uses a seed, so if you change the seed you can regenerate another level. This is helpful to our game as we want procedurally generated levels with a random order of tiles for the player to navigate and their game experience will never be the same as before. This was useful so we could have a factory that would create and build a procedurally generated 10x10 level that was unique every time, allowing the game to have endless levels that the player has to navigate. 
 
 SFXObserver(Observer)- 
 
@@ -69,7 +69,7 @@ SFXObserver(Observer)-
 
 Explanation:
 
-We implemented a simple observer to play some SFX when some events happen in the game. We wanted an SFX to play if the player beats the level if the player dies and if the player kills an enemy. The observer looks at the GameManager script  to see if the beatlevel function is called, and then it will play the win SFX, it also looks at the PlayerController script to see if the playerDiedEvent is called or the enemyKilledEvent is called and then it will play the player died SFX and enemy killed SFX. 
+We implemented a simple observer to play some SFX when some events happen in the game. We wanted an SFX to play if the player beats the level if the player dies and if the player kills an enemy. The observer looks at the GameManager script  to see if the beatlevel function is called, and then it will play the win SFX, it also looks at the PlayerController script to see if the playerDiedEvent is called or the enemyKilledEvent is called and then it will play the player died SFX and enemy killed SFX. This was useful as we had a single place that would observe events and play SFX, allowing us to better keep track of the SFX used in the game. 
 
 ------
 
