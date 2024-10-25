@@ -125,10 +125,8 @@ https://sharing.clickup.com/9011021810/g/h/6-901105904928-7/a1ca2bbd4624315
 
 Project Planning Document also included in submission.
 
-Game Demo Video:
+Assignment 1 Video Report:
 
-
-
-Assignment 1 Video Report: 
+https://www.youtube.com/watch?v=4-PBDtlFvxo&ab_channel=TylerFury_
 
 
