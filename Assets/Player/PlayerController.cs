@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Keybindings keybinds;
-    private float moveDistance = 1.5f;
+    public float moveDistance = 1.5f;
     public int PlayerHP = 10;
 
     public delegate void PlayerDied();
