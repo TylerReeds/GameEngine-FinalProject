@@ -37,24 +37,80 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x > -6.76f)
-        {
-            inputManager.HandleInput("Left");
-        }
+        // Define the grid bounds
+        float minX = -6.76f;
+        float maxX = 6.74f;
+        float minY = -8.11f;
+        float maxY = 5.39f;
 
-        if (transform.position.x < 6.74f)
+        //Logic to ensure the player cannot move past bounds when moveDistance is 1 tile
+        if (moveDistance == 1.5f)
         {
-            inputManager.HandleInput("Right");
-        }
+            if (transform.position.x > minX)
+            {
+                inputManager.HandleInput("Left");
+            }
 
-        if (transform.position.y > -8.11f)
-        {
-            inputManager.HandleInput("Down");
-        }
+            if (transform.position.x < maxX)
+            {
+                inputManager.HandleInput("Right");
+            }
+ 
+            if (transform.position.y > minY)
+            {
+                inputManager.HandleInput("Down");
+            }
 
-        if (transform.position.y < 5.39f)
+            if (transform.position.y < maxY)
+            {
+                inputManager.HandleInput("Up");
+            }
+        }
+        //Logic to ensure the player cannot move past bounds when moveDistance is 2 tiles
+        else if (moveDistance == 3.0f)
         {
-            inputManager.HandleInput("Up");
+            if (transform.position.x > (minX + 1.5f))
+            {
+                inputManager.HandleInput("Left");
+            }
+
+            if (transform.position.x < (maxX - 1.5f))
+            {
+                inputManager.HandleInput("Right");
+            }
+
+            if (transform.position.y > (minY + 1.5f))
+            {
+                inputManager.HandleInput("Down");
+            }
+
+            if (transform.position.y < (maxY - 1.5f))
+            {
+                inputManager.HandleInput("Up");
+            }
+        }
+        //Logic to ensure the player cannot move past bounds when moveDistance is 3 tiles
+        else if (moveDistance == 4.5f)
+        {
+            if (transform.position.x > (minX + 3.0f))
+            {
+                inputManager.HandleInput("Left");
+            }
+
+            if (transform.position.x < (maxX - 3.0f))
+            {
+                inputManager.HandleInput("Right");
+            }
+
+            if (transform.position.y > (minY + 3.0f))
+            {
+                inputManager.HandleInput("Down");
+            }
+
+            if (transform.position.y < (maxY - 3.0f))
+            {
+                inputManager.HandleInput("Up");
+            }
         }
 
         inputManager.HandleInput("Undo");
