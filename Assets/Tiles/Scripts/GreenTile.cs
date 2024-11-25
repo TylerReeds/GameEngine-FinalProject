@@ -17,7 +17,7 @@ public class GreenTile : BaseTile
     {
         if (collision.gameObject.tag == "Player")
         {
-            controller.PlayerHP += 2; 
+            controller.PlayerHP += 2;
         }
     }
 }

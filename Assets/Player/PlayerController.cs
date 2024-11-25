@@ -4,11 +4,23 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Subject
 {
     public Keybindings keybinds;
     public float moveDistance = 1.5f;
-    public int PlayerHP = 10;
+
+    public int _playerHP = 10;
+    public int PlayerHP
+    {
+        get { return _playerHP; }
+        set
+        {
+            _playerHP = value;
+            NotifyObservers(); // Notify observers whenever PlayerHP changes
+        }
+    }
+
+    private UIManager uiManager; 
 
     public delegate void PlayerDied();
     public event PlayerDied playerDiedEvent;
@@ -22,16 +34,27 @@ public class PlayerController : MonoBehaviour
     private Stack<ICommand> previousInputs = new Stack<ICommand>();
     private ICommand inputToRedo;
 
+    void Awake()
+    {
+        uiManager = gameObject.AddComponent<UIManager>();
+    }
+
+    void OnEnable()
+    {
+        if (uiManager)
+            Attach(uiManager);       
+    }
+
     void Start()
     {
         inputManager = InputManager.Instance;
 
-        inputManager.SetCommand("Up", new MoveUpCommand(this));
-        inputManager.SetCommand("Down", new MoveDownCommand(this));
-        inputManager.SetCommand("Left", new MoveLeftCommand(this));
-        inputManager.SetCommand("Right", new MoveRightCommand(this));
-        inputManager.SetCommand("Undo", new UndoCommand(this));
-        inputManager.SetCommand("Redo", new RedoCommand(this));
+        inputManager.SetCommand(InputAction.Up, new MoveUpCommand(this));
+        inputManager.SetCommand(InputAction.Down, new MoveDownCommand(this));
+        inputManager.SetCommand(InputAction.Left, new MoveLeftCommand(this));
+        inputManager.SetCommand(InputAction.Right, new MoveRightCommand(this));
+        inputManager.SetCommand(InputAction.Undo, new UndoCommand(this));
+        inputManager.SetCommand(InputAction.Redo, new RedoCommand(this));
     }
 
     // Update is called once per frame
@@ -48,22 +71,22 @@ public class PlayerController : MonoBehaviour
         {
             if (transform.position.x > minX)
             {
-                inputManager.HandleInput("Left");
+                inputManager.HandleInput(InputAction.Left);
             }
 
             if (transform.position.x < maxX)
             {
-                inputManager.HandleInput("Right");
+                inputManager.HandleInput(InputAction.Right);
             }
  
             if (transform.position.y > minY)
             {
-                inputManager.HandleInput("Down");
+                inputManager.HandleInput(InputAction.Down);
             }
 
             if (transform.position.y < maxY)
             {
-                inputManager.HandleInput("Up");
+                inputManager.HandleInput(InputAction.Up);
             }
         }
         //Logic to ensure the player cannot move past bounds when moveDistance is 2 tiles
@@ -71,22 +94,22 @@ public class PlayerController : MonoBehaviour
         {
             if (transform.position.x > (minX + 1.5f))
             {
-                inputManager.HandleInput("Left");
+                inputManager.HandleInput(InputAction.Left);
             }
 
             if (transform.position.x < (maxX - 1.5f))
             {
-                inputManager.HandleInput("Right");
+                inputManager.HandleInput(InputAction.Right);
             }
 
             if (transform.position.y > (minY + 1.5f))
             {
-                inputManager.HandleInput("Down");
+                inputManager.HandleInput(InputAction.Down);
             }
 
             if (transform.position.y < (maxY - 1.5f))
             {
-                inputManager.HandleInput("Up");
+                inputManager.HandleInput(InputAction.Up);
             }
         }
         //Logic to ensure the player cannot move past bounds when moveDistance is 3 tiles
@@ -94,27 +117,27 @@ public class PlayerController : MonoBehaviour
         {
             if (transform.position.x > (minX + 3.0f))
             {
-                inputManager.HandleInput("Left");
+                inputManager.HandleInput(InputAction.Left);
             }
 
             if (transform.position.x < (maxX - 3.0f))
             {
-                inputManager.HandleInput("Right");
+                inputManager.HandleInput(InputAction.Right);
             }
 
             if (transform.position.y > (minY + 3.0f))
             {
-                inputManager.HandleInput("Down");
+                inputManager.HandleInput(InputAction.Down);
             }
 
             if (transform.position.y < (maxY - 3.0f))
             {
-                inputManager.HandleInput("Up");
+                inputManager.HandleInput(InputAction.Up);
             }
         }
 
-        inputManager.HandleInput("Undo");
-        inputManager.HandleInput("Redo");
+        inputManager.HandleInput(InputAction.Undo);
+        inputManager.HandleInput(InputAction.Redo);
 
         if (PlayerHP <= 0)
         {
@@ -124,7 +147,6 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(Delay());
         }
 
-        Debug.Log(PlayerHP);
     }
     IEnumerator Delay()
     {

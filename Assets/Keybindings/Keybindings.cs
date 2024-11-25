@@ -2,35 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum InputAction
+{
+    Up,
+    Down,
+    Left,
+    Right,
+    Undo,
+    Redo,
+}
+
 [CreateAssetMenu(fileName = "Keybindings", menuName = "Keybindings")]
 public class Keybindings : ScriptableObject
 {
-    public KeyCode up, down, left, right, undo, redo; 
+    public KeyCode up, down, left, right, undo, redo, none; 
 
-    public KeyCode CheckKey(string key)
+    public KeyCode CheckKey(InputAction action)
     {
-        switch (key)
+        switch (action)
         {
-            case "Up":
+            case InputAction.Up:
                 return up;
 
-            case "Down":
+            case InputAction.Down:
                 return down;
 
-            case "Left":
+            case InputAction.Left:
                 return left;
 
-            case "Right":
+            case InputAction.Right:
                 return right;
 
-            case "Undo":
+            case InputAction.Undo:
                 return undo;
 
-            case "Redo":
+            case InputAction.Redo:
                 return redo;
 
             default:
-                return KeyCode.None;    
+                return none;
         }
     }
 }

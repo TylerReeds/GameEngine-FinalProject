@@ -7,33 +7,30 @@ public class InputManager : MonoBehaviour
     public static InputManager Instance;
 
     public Keybindings keybindings;
-    public Dictionary<string, ICommand> movement = new Dictionary<string, ICommand>();
+    public Dictionary<InputAction, ICommand> movement = new Dictionary<InputAction, ICommand>();
 
     void Awake()
     {
-        if (Instance == null)
+        if (Instance != null && Instance != this)
         {
-            Instance = this;
+            Destroy(gameObject);
+            return;
         }
-        else if (Instance != this)
-        {
-            Destroy(this);
-        }
-        DontDestroyOnLoad(this);
+        Instance = this;
     }
 
-    public void SetCommand(string key, ICommand command)
+    public void SetCommand(InputAction action, ICommand command)
     {
-        movement[key] = command;
+        movement[action] = command;
     }
 
-    public void HandleInput(string key)
+    public void HandleInput(InputAction action)
     {
-        if (Input.GetKeyDown(keybindings.CheckKey(key)))
+        if (Input.GetKeyDown(keybindings.CheckKey(action)))
         {
-            if (movement.ContainsKey(key))
+            if (movement.ContainsKey(action))
             {
-                movement[key].Execute();
+                movement[action].Execute();
             }
         }
     }
