@@ -30,10 +30,12 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if(instance != this && instance != null)
+        if (instance != null && instance != this)
         {
-            instance = this;
+            Destroy(gameObject);
+            return;
         }
+        instance = this;
 
         numOfEnemiesAlive = enemyList.Count;
 
