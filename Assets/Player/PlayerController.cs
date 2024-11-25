@@ -4,11 +4,23 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Subject
 {
     public Keybindings keybinds;
     public float moveDistance = 1.5f;
-    public int PlayerHP = 10;
+
+    public int _playerHP = 10;
+    public int PlayerHP
+    {
+        get { return _playerHP; }
+        set
+        {
+            _playerHP = value;
+            NotifyObservers(); // Notify observers whenever PlayerHP changes
+        }
+    }
+
+    private UIManager uiManager; 
 
     public delegate void PlayerDied();
     public event PlayerDied playerDiedEvent;
@@ -21,6 +33,17 @@ public class PlayerController : MonoBehaviour
 
     private Stack<ICommand> previousInputs = new Stack<ICommand>();
     private ICommand inputToRedo;
+
+    void Awake()
+    {
+        uiManager = gameObject.AddComponent<UIManager>();
+    }
+
+    void OnEnable()
+    {
+        if (uiManager)
+            Attach(uiManager);       
+    }
 
     void Start()
     {
@@ -124,7 +147,6 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(Delay());
         }
 
-        Debug.Log(PlayerHP);
     }
     IEnumerator Delay()
     {
