@@ -12,6 +12,15 @@ public class BaseTile : MonoBehaviour
 
     public int damage;
 
+    private void Awake()
+    {
+        gameManagerObj = GameObject.Find("GameManager");
+        gameManager = gameManagerObj.GetComponent<GameManager>();
+
+        player = GameObject.Find("Player");
+        controller = player.GetComponent<PlayerController>();
+    }
+
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         // Child classes will override this and do x thing with Player

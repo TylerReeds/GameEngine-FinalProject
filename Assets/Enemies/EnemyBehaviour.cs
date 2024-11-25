@@ -13,9 +13,10 @@ public class EnemyBehaviour : MonoBehaviour
     public int damage;
     public int tileMovement; // If 1, an enemy can move 1 tile. If 2, an enemy can move 2 tiles, and so on.
 
-    void Start()
+    void Awake()
     {
-        
+        gameManagerObj = GameObject.Find("GameManager");
+        gameManager = gameManagerObj.GetComponent<GameManager>();
     }
 
     void Update()

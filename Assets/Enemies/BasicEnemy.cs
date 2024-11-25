@@ -9,9 +9,6 @@ public class BasicEnemy : EnemyBehaviour
         health = 1;
         damage = 1;
         tileMovement = 1;
-
-        gameManagerObj = GameObject.Find("GameManager");
-        gameManager = gameManagerObj.GetComponent<GameManager>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)

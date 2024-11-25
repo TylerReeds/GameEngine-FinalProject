@@ -6,18 +6,14 @@ public class PinkTile : BaseTile
 {
     void Start()
     {
-        gameManagerObj = GameObject.Find("GameManager");
-        gameManager = gameManagerObj.GetComponent<GameManager>();
-
-        player = GameObject.Find("Player");
-        controller = player.GetComponent<PlayerController>();
+        damage = 1; // Healing, in this case.
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            controller.PlayerHP += 1;
+            controller.PlayerHP += damage; // += is healing
         }
     }
 }

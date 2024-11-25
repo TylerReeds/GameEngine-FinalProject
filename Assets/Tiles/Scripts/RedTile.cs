@@ -6,18 +6,14 @@ public class RedTile : BaseTile
 {
     void Start()
     {
-        gameManagerObj = GameObject.Find("GameManager");
-        gameManager = gameManagerObj.GetComponent<GameManager>();
-
-        player = GameObject.Find("Player");
-        controller = player.GetComponent<PlayerController>();
+        damage = 2;
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            controller.PlayerHP -= 2;
+            controller.PlayerHP -= damage;
         }
     }
 }

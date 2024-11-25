@@ -23,10 +23,8 @@ public class PlayerController : Subject
     private UIManager uiManager; 
 
     public delegate void PlayerDied();
-    public event PlayerDied playerDiedEvent;
 
     public delegate void EnemyKilled();
-    public event EnemyKilled enemyKilledEvent;
 
     private InputManager inputManager;
     [SerializeField] private GameManager gameManager;
@@ -142,8 +140,6 @@ public class PlayerController : Subject
         if (PlayerHP <= 0)
         {
             Debug.Log("Player Dead");
-            playerDiedEvent();
-            enemyKilledEvent();
             StartCoroutine(Delay());
         }
 
@@ -151,7 +147,7 @@ public class PlayerController : Subject
     IEnumerator Delay()
     {
         yield return new WaitForSeconds(2);
-        GameObject.Destroy(gameObject);
+        Destroy(this.gameObject);
         //EditorApplication.ExitPlaymode();
         Application.Quit();
     }
