@@ -13,12 +13,12 @@ public class TileObjectPool : MonoBehaviour
             var pooledObj = pool.Dequeue();
             // Get an object from the pool
             pooledObj.SetActive(true); 
-            Debug.Log($"Reusing {pooledObj.name} from pool");
+            //Debug.Log($"Reusing {pooledObj.name} from pool");
             return pooledObj;
         }
         else
         {
-            Debug.Log($"Instantiating new {prefab.name}");
+            //Debug.Log($"Instantiating new {prefab.name}");
             // Instantiate a new object if the pool is empty
             return Instantiate(prefab); 
         }
@@ -26,7 +26,7 @@ public class TileObjectPool : MonoBehaviour
 
     public void Return(GameObject obj)
     {
-        Debug.Log($"Returning {obj.name} to pool");
+        //Debug.Log($"Returning {obj.name} to pool");
         obj.SetActive(false); 
         obj.transform.SetParent(this.transform); 
         pool.Enqueue(obj); 
