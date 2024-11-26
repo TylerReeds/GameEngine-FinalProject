@@ -9,7 +9,7 @@ public class UIManager : Observer
 
     void OnGUI()
     {
-        GUILayout.BeginArea(new Rect(925, 150, 100, 200));
+        GUILayout.BeginArea(new Rect(700, 150, 100, 200));
 
         // Display score
         GUILayout.BeginHorizontal("box");

@@ -46,7 +46,7 @@ public class DLL_Player : MonoBehaviour
 
                         for (int j = 1; j < headers.Length; j++)
                         {
-                            string moveDistanceCode = headers[j].Trim(); // e.g., "en", "es", "fr"
+                            string moveDistanceCode = headers[j].Trim(); 
                             if (float.TryParse(columns[j].Trim(), out float distance))
                             {
                                 moveDistances[moveDistanceCode] = distance;

@@ -29,7 +29,7 @@ public class WorldBuilderController : MonoBehaviour
         var distinctIds = typeIds.Distinct().ToList();
         foreach (var id in distinctIds)
         {
-            Debug.Log($"{id} count = '{typeIds.Count(t => t == id)}'");
+            //Debug.Log($"{id} count = '{typeIds.Count(t => t == id)}'");
         }
     }
 
@@ -78,7 +78,7 @@ public class WorldBuilderController : MonoBehaviour
         for (int i = this.transform.childCount - 1; i >= 0; i--)
         {
             var child = this.transform.GetChild(i).gameObject;
-            Debug.Log($"Destroying or returning: {child.name}");
+            //Debug.Log($"Destroying or returning: {child.name}");
             TilePool.Return(child); 
             yield return null; 
         }
